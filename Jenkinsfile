@@ -1,12 +1,12 @@
 node {
     def root = tool name: 'Go1.9', type: 'go'
-    ws("${JENKINS_HOME}/jobs/${JOB_NAME}/builds/${BUILD_ID}/src/github.ibm.com/Avninder-Singh/ci-playground") {
+    ws("${JENKINS_HOME}/jobs/${JOB_NAME}/builds/${BUILD_ID}/src/github.com/idjayant/CI-goSample") {
         withEnv(["GOROOT=${root}", "GOPATH=${JENKINS_HOME}/jobs/${JOB_NAME}/builds/${BUILD_ID}/", "PATH+GO=${root}/bin"]) {
             env.PATH="${GOPATH}/bin:$PATH"
             
             stage 'Checkout'
         
-            git url: 'https://github.ibm.com/Avninder-Singh/ci-playground.git'
+            git url: 'https://github.com/idjayant/CI-goSample.git'
         
             stage 'preTest'
             sh 'go version'
